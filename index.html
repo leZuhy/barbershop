@@ -183,40 +183,40 @@ Tamno siva (tekst): #333333-->
             <div class="timeslots">
               <p>Izaberi termin:</p>
               <div class="slots-grid">
-                <button type="button" class="timeslot" onclick="Rezerv()">
+                <button type="button" class="timeslot" onclick="Rezerv(this)">
                   09:00
                 </button>
-                <button type="button" class="timeslot" onclick="Rezerv()">
+                <button type="button" class="timeslot" onclick="Rezerv(this)">
                   10:00
                 </button>
-                <button type="button" class="timeslot" onclick="Rezerv()">
+                <button type="button" class="timeslot" onclick="Rezerv(this)">
                   11:00
                 </button>
-                <button type="button" class="timeslot" onclick="Rezerv()">
+                <button type="button" class="timeslot" onclick="Rezerv(this)">
                   12:00
                 </button>
-                <button type="button" class="timeslot" onclick="Rezerv()">
+                <button type="button" class="timeslot" onclick="Rezerv(this)">
                   13:00
                 </button>
-                <button type="button" class="timeslot" onclick="Rezerv()">
+                <button type="button" class="timeslot" onclick="Rezerv(this)">
                   14:00
                 </button>
-                <button type="button" class="timeslot" onclick="Rezerv()">
+                <button type="button" class="timeslot" onclick="Rezerv(this)">
                   15:00
                 </button>
-                <button type="button" class="timeslot" onclick="Rezerv()">
+                <button type="button" class="timeslot" onclick="Rezerv(this)">
                   16:00
                 </button>
-                <button type="button" class="timeslot" onclick="Rezerv()">
+                <button type="button" class="timeslot" onclick="Rezerv(this)">
                   17:00
                 </button>
-                <button type="button" class="timeslot" onclick="Rezerv()">
+                <button type="button" class="timeslot" onclick="Rezerv(this)">
                   18:00
                 </button>
               </div>
             </div>
 
-            <!-- Skriveno polje koje se popunjava kada klikneš termin -->
+            <!-- Skriveni input za odabrani termin -->
             <input
               type="hidden"
               name="selected_time"
@@ -272,32 +272,5 @@ Tamno siva (tekst): #333333-->
       <p>&copy; 2025 Barber Shop. Sva prava zadržana.</p>
     </footer>
   </body>
-  <script>
-    var dateInput = document.getElementById("date");
-    var prevDayButton = document.getElementById("prev-day");
-    var nextDayButton = document.getElementById("next-day");
-
-    var today = new Date();
-    dateInput.valueAsDate = today;
-    changeDate = (days) => {
-      var currentDate = new Date(dateInput.valueAsDate);
-      currentDate.setDate(currentDate.getDate() + days);
-      dateInput.valueAsDate = currentDate;
-    };
-    prevDayButton.addEventListener("click", () => {
-      changeDate(-1);
-    });
-    nextDayButton.addEventListener("click", () => {
-      changeDate(1);
-    });
-
-    function Rezerv() {
-      var selectedTime = event.target.innerText;
-      document.getElementById("selected_time").value = selectedTime;
-      document.querySelector(".podaci").style.display = "block";
-    }
-    function submitForm() {
-      document.querySelector(".podaci").style.display = "none";
-    }
-  </script>
+  <script src="script.js"></script>
 </html>
