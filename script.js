@@ -29,6 +29,7 @@ function submitForm() {
   obj.vrijeme = document.getElementById("selected_time").value;
   let jsonObj = JSON.stringify(obj);
   document.querySelector(".podaci").style.display = "none";
+  console.log(jsonObj);
   fetch(
     "https://barbershopmeha-default-rtdb.europe-west1.firebasedatabase.app/rezervacije.json",
     {
@@ -38,12 +39,17 @@ function submitForm() {
         "Content-Type": "application/json",
       },
     }
-  ).then((res) => {
-    if (res.status != 200) {
-      alert("Greska pri rezervisanju :(");
-    }
-    res.json().then((body) => {
-      alert("Uspjesno rezervisano sisanje!!");
+  )
+    .then((res) => {
+      if (res.status != 200) {
+        alert("Greska pri rezervisanju :(");
+      }
+      res.json().then((body) => {
+        alert("Uspjesno rezervisano sisanje!!");
+      });
+    })
+    .catch((err) => {
+      console.log("Greska u fetchu: ", err);
+      alert("Greska u firebaseu");
     });
-  });
 }
