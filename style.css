@@ -318,8 +318,16 @@ label {
   color: #555;
   line-height: 1.6;
 }
+#comments_section {
+  margin-top: 30px;
+  text-align: center;
+}
+#comments_section h2 {
+  margin-bottom: 15px;
+}
 #comments_list {
   display: flex;
+  justify-content: space-evenly;
   flex-wrap: wrap;
   gap: 10px;
 }
