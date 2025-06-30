@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Barber Shop</title>
     <link rel="stylesheet" href="style.css" />
+    <link rel="stylesheet" href="dialog.css" />
     <link
       href="https://fonts.googleapis.com/css2?family=Poppins&display=swap"
       rel="stylesheet"
@@ -168,7 +169,7 @@ Tamno siva (tekst): #333333-->
         <h2>Rezerviši sada</h2>
 
         <div class="box">
-          <form>
+          <form onsubmit="submitForm(event)">
             <!-- Odabir datuma -->
             <label for="date">Datum:</label>
             <button type="button" id="prev-day" class="datebutton">
@@ -224,9 +225,7 @@ Tamno siva (tekst): #333333-->
               required
             />
 
-            <button type="submit" class="submit" onclick="submitForm()">
-              Pošalji
-            </button>
+            <button type="submit" class="submit">Pošalji</button>
           </form>
         </div>
         <div class="podaci">
@@ -243,6 +242,7 @@ Tamno siva (tekst): #333333-->
             id="email"
             name="email"
             placeholder="Email"
+            oninput="provjeriMail()"
             class="rezervacija"
             required
           />
@@ -251,12 +251,41 @@ Tamno siva (tekst): #333333-->
             id="phone"
             name="phone"
             placeholder="Telefon"
+            oninput="provjeriBroj()"
             class="rezervacija"
             required
           />
         </div>
       </section>
 
+      <section id="komentari">
+        <div id="comments_section">
+          <h2>Komentari i ocjene</h2>
+          <div id="comments_list">
+            <!-- Ovdje će se dinamički ubacivati komentari -->
+          </div>
+          <button id="add_comment_btn" onclick="dodajKomentar()">
+            + Dodaj komentar
+          </button>
+
+          <!-- Forma za novi komentar, skrivena dok se ne klikne -->
+          <div id="comment_form" style="display: none; margin-top: 15px">
+            <input type="text" id="input_name" placeholder="Ime" /><br />
+            <textarea id="input_text" placeholder="Komentar"></textarea><br />
+            <input
+              type="number"
+              id="input_rating"
+              placeholder="Ocjena"
+              min="1"
+              max="5"
+              style="width: 70px"
+            /><br />
+            <button id="submit_comment_btn" onclick="postKomentar()">
+              Pošalji komentar
+            </button>
+          </div>
+        </div>
+      </section>
       <!-- Sekcija: Kontakt -->
       <section id="contact">
         <h1>Kontaktiraj nas</h1>
@@ -272,5 +301,6 @@ Tamno siva (tekst): #333333-->
       <p>&copy; 2025 Barber Shop. Sva prava zadržana.</p>
     </footer>
     <script src="script.js"></script>
+    <script src="dialog.js"></script>
   </body>
 </html>
