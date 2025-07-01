@@ -441,6 +441,8 @@ footer {
   #title-text {
     display: flex;
     flex-direction: column;
+    font-size: medium;
+    text-align: center;
   }
   .text {
     display: flex;
@@ -449,6 +451,7 @@ footer {
   .buttoni {
     display: flex;
     align-items: center;
+    gap: 50px;
   }
   .book-now {
     position: static;
@@ -472,12 +475,7 @@ footer {
     text-align: center;
   }
   .gallery-container {
-    grid-template-columns: repeat(2, 1fr);
-  }
-  .gallery-item:last-child {
-    grid-column: span 2;
-    justify-self: center;
-    width: 50%;
+    grid-template-columns: repeat(1, 1fr);
   }
   .nudimo {
     flex-direction: column;
@@ -485,5 +483,23 @@ footer {
   .service-description {
     margin-top: 20px;
     margin-bottom: 40px;
+  }
+  .timeslot {
+    padding: 10px 110px;
+  }
+  #date {
+    padding: 10px 0;
+    text-align: center;
+  }
+  .submit {
+    padding: 10px 120px;
+    text-align: center;
+  }
+  .gallery-item:nth-child(n + 4) {
+    display: none;
+  }
+  #next-day,
+  #prev-day {
+    display: none;
   }
 }
