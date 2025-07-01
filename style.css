@@ -1,7 +1,7 @@
 * {
   padding: 0;
   margin: 0;
-  overflow: hidden auto; /* sakriva scroll bar */
+  overflow: hidden auto;
 }
 html {
   scroll-behavior: smooth;
@@ -11,8 +11,8 @@ a {
   color: #1a1a1a;
 }
 #title {
-  background-image: url("pozadina.jpg"); /* tamnozelena boja */
-  padding: 300px 100px; /* da se unutrašnji sadržaj ne zalijepi uz rubove */
+  background-image: url("pozadina.jpg");
+  padding: 300px 100px;
   color: white;
   display: flex;
   background-repeat: no-repeat;
@@ -45,6 +45,9 @@ a {
   background-size: 0% 100%;
   transition: background-size 0.5s ease;
   background-color: #d4af37;
+}
+#drop-down-btn {
+  display: none;
 }
 .book-now:hover {
   background-size: 100% 100%;
@@ -316,7 +319,6 @@ label {
   cursor: pointer;
 }
 #footer {
-  background-color: rgb(6, 94, 79);
   color: white;
   text-align: center;
   padding: 20px;
@@ -338,6 +340,12 @@ label {
 }
 .podaci {
   display: none;
+  background-color: #ffffff8b;
+  width: fit-content;
+  margin: auto;
+}
+.podaci h4 {
+  color: #1a1a1a;
 }
 .rezervacija {
   margin: 5px;
@@ -376,11 +384,38 @@ label {
   flex-wrap: wrap;
   gap: 10px;
 }
+#add_comment_btn,
+#submit_comment_btn {
+  height: 30px;
+  width: 150px;
+  border-radius: 10px;
+}
+#add_comment_btn:hover,
+#submit_comment_btn:hover {
+  cursor: pointer;
+  background-color: #ffffff;
+  transition: 0.5s;
+}
+#input_name {
+  width: 170px;
+  height: 30px;
+}
+#input_rating {
+  margin-bottom: 10px;
+  height: 20px;
+  text-align: center;
+}
+#input_text {
+  margin-top: 10px;
+  width: 200px;
+  height: 80px;
+}
 .comment {
   flex: 0 1 300px;
   box-sizing: border-box;
   border: 1px solid #ccc;
   padding: 10px;
+  background-color: #ffffff;
 }
 #contact {
   margin-top: 50px;
@@ -400,119 +435,55 @@ footer {
 }
 
 @media (max-width: 600px) {
-  body {
-    font-size: 16px;
-  }
-
   #title {
-    padding: 150px 20px;
     flex-direction: column;
-    background-position: center;
   }
-
+  #title-text {
+    display: flex;
+    flex-direction: column;
+  }
   .text {
-    position: relative;
-    padding: 15px 10px;
-    background-color: #ededede6;
-    flex-wrap: wrap;
-  }
-
-  /* Button book-now */
-  .book-now {
-    position: relative;
-    right: auto;
-    top: auto;
-    margin: 20px auto;
-    display: block;
-    width: 80%;
-    font-size: 1.2rem;
-  }
-
-  #header ul {
+    display: flex;
     flex-direction: column;
-    font-size: large;
   }
-
-  #header li {
-    padding: 15px 0;
-  }
-
-  .gallery-container {
-    grid-template-columns: 1fr;
-    gap: 10px;
-    max-width: 90vw;
-    margin: 0 auto;
-  }
-
-  .gallery-item {
-    height: 200px;
-  }
-
-  .nudimo {
-    flex-direction: column;
-    margin-bottom: 40px;
-  }
-
-  .service-card {
-    margin-bottom: 30px;
+  .buttoni {
+    display: flex;
     align-items: center;
   }
-
-  .service-card img {
-    padding: 30px;
-    width: 80px;
-    height: 80px;
+  .book-now {
+    position: static;
+    margin: auto;
+    margin-top: 10px;
   }
-
-  #booking h2 {
-    font-size: 2rem;
+  #drop-down-btn {
+    display: block;
+    position: relative;
+    right: 20%;
+    border: 0;
+    align-self: flex-end;
   }
-
-  .box {
-    width: 90vw;
-    margin: 20px auto;
+  #menu-icon {
+    height: 50px;
+    width: 50px;
   }
-
-  .slots-grid {
+  #header ul {
+    display: none;
     flex-direction: column;
-    gap: 10px;
+    text-align: center;
   }
-
-  .timeslot {
-    padding: 10px 20px;
-    font-size: large;
-    width: 90vw;
-    margin: 10px auto;
+  .gallery-container {
+    grid-template-columns: repeat(2, 1fr);
   }
-
-  #date {
-    width: 90vw;
-    padding: 15px;
+  .gallery-item:last-child {
+    grid-column: span 2;
+    justify-self: center;
+    width: 50%;
   }
-
-  .submit {
-    width: 90vw;
-    padding: 15px;
-    font-size: large;
-  }
-
-  #comments_list {
+  .nudimo {
     flex-direction: column;
-    gap: 15px;
   }
-
-  .comment {
-    flex: 1 1 auto;
-    max-width: 90vw;
-  }
-
-  #contact {
-    font-size: 1rem;
-    padding: 0 15px;
-  }
-
-  footer {
-    font-size: 0.9rem;
-    padding: 10px 15px;
+  .service-description {
+    margin-top: 20px;
+    margin-bottom: 40px;
   }
 }

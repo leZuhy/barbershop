@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Barber Shop</title>
+    <title>Frizerski Salon StarMo</title>
     <link rel="stylesheet" href="style.css" />
     <link rel="stylesheet" href="dialog.css" />
     <link
@@ -17,11 +17,23 @@
         <img id="logo" src="barber-logo.png" />
         <div id="title-text">
           <h1>
-            <span style="color: #333333">Barber Shop Meha</span>
+            <span style="color: #333333">Frizerski Salon StarMo</span>
           </h1>
-          <p style="color: #1a1a1a">Vaš omiljeni brijač u gradu</p>
+          <p style="color: #1a1a1a">Vaš omiljeni frizer u gradu</p>
         </div>
-        <button class="book-now"><a href="#booking">Rezerviši odmah</a></button>
+        <div class="buttoni">
+          <button class="book-now">
+            <a href="#booking">Rezerviši odmah</a>
+          </button>
+          <button id="drop-down-btn">
+            <img
+              src="menu-icon.png"
+              alt="Menu"
+              id="menu-icon"
+              onclick="toggleDropdown()"
+            />
+          </button>
+        </div>
       </div>
     </div>
     <!-- Navigacija -->
@@ -229,6 +241,7 @@ Tamno siva (tekst): #333333-->
           </form>
         </div>
         <div class="podaci">
+          <h4>Ime i prezime</h4>
           <input
             type="text"
             id="name"
@@ -237,6 +250,7 @@ Tamno siva (tekst): #333333-->
             class="rezervacija"
             required
           /><br />
+          <h4>Kontakt podaci</h4>
           <input
             type="email"
             id="email"
@@ -296,7 +310,10 @@ Tamno siva (tekst): #333333-->
 
     <!-- Footer -->
     <footer>
-      <p>&copy; 2025 Barber Shop. Sva prava zadržana.</p>
+      <p>
+        &copy; 2025 Frizerski Salon StarMo. Sva prava zadržana.<br />
+        Stranica dizajnirana od strane Amar Beganović
+      </p>
     </footer>
     <script src="script.js"></script>
     <script src="dialog.js"></script>

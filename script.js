@@ -178,3 +178,8 @@ function postKomentar() {
       alert("Došlo je do greške prilikom slanja komentara.");
     });
 }
+function toggleDropdown() {
+  const dropdown = document.querySelector("#header ul");
+  dropdown.style.display =
+    dropdown.style.display === "block" ? "none" : "block";
+}
