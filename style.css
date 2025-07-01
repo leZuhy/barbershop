@@ -3,6 +3,13 @@
   margin: 0;
   overflow: hidden auto; /* sakriva scroll bar */
 }
+html {
+  scroll-behavior: smooth;
+}
+a {
+  text-decoration: none;
+  color: #1a1a1a;
+}
 #title {
   background-image: url("pozadina.jpg"); /* tamnozelena boja */
   padding: 300px 100px; /* da se unutrašnji sadržaj ne zalijepi uz rubove */
@@ -26,17 +33,26 @@
   position: absolute;
   right: 80px;
   top: 30%;
-  background-color: #d4af37;
   padding: 15px 20px;
   color: black;
   border: 0;
+  border-radius: 5px;
   font-size: large;
   cursor: pointer;
   font-family: "Poppins", sans-serif;
+  background-image: linear-gradient(to right, #a2831f 100%, transparent 0%);
+  background-repeat: no-repeat;
+  background-size: 0% 100%;
+  transition: background-size 0.5s ease;
+  background-color: #d4af37;
+}
+.book-now:hover {
+  background-size: 100% 100%;
+  color: black;
 }
 #title-text {
-  font-size: 18px; /* postavi veličinu fonta */
-  align-self: center; /* centriraj tekst vertikalno */
+  font-size: 18px;
+  align-self: center;
   padding: 0;
   color: #ededed;
 }
@@ -45,7 +61,7 @@
   height: 75px;
   align-self: center;
   margin: 0 25px;
-  border-radius: 50%; /* zaokružuje sliku */
+  border-radius: 50%;
 }
 body {
   font-family: "Poppins", sans-serif;
@@ -86,19 +102,20 @@ body {
 }
 #gallery h2 {
   font-size: 50px;
-  margin: 20px 0;
+  margin: 20px auto;
   color: #333333;
 }
 .gallery-container {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   gap: 20px;
-  margin-bottom: 25px;
+  max-width: 1100px;
+  margin: auto;
 }
 .gallery-item {
   position: relative;
   width: 100%;
-  height: 450px;
+  height: 350px;
   overflow: hidden;
   border-radius: 10px;
 }
@@ -115,7 +132,7 @@ body {
   right: 0;
   bottom: 0;
   background-color: #ededed6d;
-  color: white;
+  color: #1a1a1a;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -137,7 +154,7 @@ body {
 .overlay button {
   padding: 10px 15px;
   background-color: #d4af37;
-  color: white;
+  color: #1a1a1a;
   border: none;
   border-radius: 5px;
   cursor: pointer;
@@ -196,7 +213,7 @@ body {
 .box {
   width: fit-content;
   margin: auto;
-  background-color: #1a1a1a;
+  background-color: #1a1a1a95;
 }
 #booking h2 {
   font-size: 50px;
@@ -204,13 +221,41 @@ body {
   margin: auto;
   width: fit-content;
   font-family: "Poppins", sans-serif;
-  background-color: #1a1a1a;
+  background-color: #1a1a1a95;
 }
 .slots-grid {
   display: flex;
   flex-direction: column;
   gap: 5px;
 }
+.comment {
+  border: 1px solid #ccc;
+  margin-bottom: 10px;
+  padding: 10px;
+}
+
+.comment-header {
+  display: flex;
+  align-items: center;
+  margin-bottom: 5px;
+}
+
+.comment-header img {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  object-fit: cover;
+  margin-right: 10px;
+}
+
+.comment-meta {
+  display: inline-block;
+}
+
+.comment p {
+  margin: 0;
+}
+
 .timeslot {
   width: fit-content;
   margin: auto;
@@ -352,4 +397,122 @@ footer {
   margin-top: 20px;
   text-align: center;
   border: 1px solid silver;
+}
+
+@media (max-width: 600px) {
+  body {
+    font-size: 16px;
+  }
+
+  #title {
+    padding: 150px 20px;
+    flex-direction: column;
+    background-position: center;
+  }
+
+  .text {
+    position: relative;
+    padding: 15px 10px;
+    background-color: #ededede6;
+    flex-wrap: wrap;
+  }
+
+  /* Button book-now */
+  .book-now {
+    position: relative;
+    right: auto;
+    top: auto;
+    margin: 20px auto;
+    display: block;
+    width: 80%;
+    font-size: 1.2rem;
+  }
+
+  #header ul {
+    flex-direction: column;
+    font-size: large;
+  }
+
+  #header li {
+    padding: 15px 0;
+  }
+
+  .gallery-container {
+    grid-template-columns: 1fr;
+    gap: 10px;
+    max-width: 90vw;
+    margin: 0 auto;
+  }
+
+  .gallery-item {
+    height: 200px;
+  }
+
+  .nudimo {
+    flex-direction: column;
+    margin-bottom: 40px;
+  }
+
+  .service-card {
+    margin-bottom: 30px;
+    align-items: center;
+  }
+
+  .service-card img {
+    padding: 30px;
+    width: 80px;
+    height: 80px;
+  }
+
+  #booking h2 {
+    font-size: 2rem;
+  }
+
+  .box {
+    width: 90vw;
+    margin: 20px auto;
+  }
+
+  .slots-grid {
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .timeslot {
+    padding: 10px 20px;
+    font-size: large;
+    width: 90vw;
+    margin: 10px auto;
+  }
+
+  #date {
+    width: 90vw;
+    padding: 15px;
+  }
+
+  .submit {
+    width: 90vw;
+    padding: 15px;
+    font-size: large;
+  }
+
+  #comments_list {
+    flex-direction: column;
+    gap: 15px;
+  }
+
+  .comment {
+    flex: 1 1 auto;
+    max-width: 90vw;
+  }
+
+  #contact {
+    font-size: 1rem;
+    padding: 0 15px;
+  }
+
+  footer {
+    font-size: 0.9rem;
+    padding: 10px 15px;
+  }
 }

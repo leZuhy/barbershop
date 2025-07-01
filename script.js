@@ -105,10 +105,15 @@ function getKomentari() {
           const comment = body[id];
 
           commentsList.innerHTML += `
-          <div class="comment" style="border:1px solid #ccc; margin-bottom:10px; padding:10px;">
-            <strong>${comment.ime}</strong> - Ocjena: ${comment.ocjena}<br/>
-            <p>${comment.tekst}</p>
-          </div>
+          <div class="comment">
+           <div class="comment-header">
+             <img src="user.jpg" alt="Korisnik" />
+              <div class="comment-meta">
+             <strong>• ${comment.ime}</strong> - Ocjena: ${comment.ocjena}
+           </div>
+         </div>
+           <p>${comment.tekst}</p>
+        </div>
         `;
         }
       });
