@@ -3,10 +3,7 @@ function zatvori() {
   console.log("dialog: zatvoren");
 }
 
-var fGobalEventNaOkDugme;
-function dialogSuccess(porukaText, eventNaOkDugme) {
-  fGobalEventNaOkDugme = eventNaOkDugme;
-
+function dialogSuccess(porukaText) {
   let noviDiv = document.createElement("div");
   noviDiv.id = "my-dialog-wrapper";
   document.body.appendChild(noviDiv);
@@ -23,7 +20,7 @@ function dialogSuccess(porukaText, eventNaOkDugme) {
             ${porukaText}
         </div>
         <div class="my-dialog-footer">
-            <div class="dugme dugmeOk" onclick="fGobalEventNaOkDugme();zatvori()">
+            <div class="dugme dugmeOk" onclick="zatvori()">
                 Ok
             </div>
             <div class="dugme dugmeCancel" onclick="zatvori()">
