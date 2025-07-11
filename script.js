@@ -22,11 +22,11 @@ function Rezerv(btn) {
   document.querySelector(".podaci").style.display = "block";
 }
 function submitForm(ev) {
-  if (!provjeriBroj() || !provjeriMail()) {
+  ev.preventDefault();
+  if (!provjeriMail()) {
     alert("Pogresno uneseni podaci >:(");
     return;
   }
-  ev.preventDefault();
   let obj = new Object();
   obj.ime = document.getElementById("name").value;
   obj.email = document.getElementById("email").value;
@@ -55,6 +55,9 @@ function submitForm(ev) {
         dialogSuccess("Uspjesno rezervisano sisanje!!");
       }
     })
+    .then(() => {
+      dialogSuccess("Uspjesno rezervisano sisanje!");
+    })
     .catch((err) => {
       console.log("Greska u fetchu: ", err);
       alert("Greska u firebaseu");
@@ -62,7 +65,7 @@ function submitForm(ev) {
 }
 function provjeriMail() {
   if (
-    !/^[\w.-](@gmail.com|edu.fit@ba)$/.test(
+    !/^[a-zA-Z]+(.|-)(@gmail.com|edu.fit@ba)$/.test(
       document.getElementById("email").value
     )
   ) {
@@ -75,15 +78,11 @@ function provjeriMail() {
 }
 function provjeriBroj() {
   if (
-    !/^\+3876(0|1|2|3)[0-9]{3}[0-9]{4}$/.test(
-      document.getElementById("phone").value
-    )
+    !/^\+3876[0-3][0-9]{6}$/.test(document.getElementById("phoneInput").value)
   ) {
-    phone.style.backgroundColor = "red";
-    return false;
+    document.getElementById("phoneInput").style.backgroundColor = "red";
   } else {
-    phone.style.backgroundColor = "teal";
-    return true;
+    document.getElementById("phoneInput").style.backgroundColor = "teal";
   }
 }
 function getKomentari() {
